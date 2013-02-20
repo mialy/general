@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @author Mikhail Kyosev (mialygk@gmail.com)
- * @license BSD
+ * @author Mikhail Kyosev <mialygk@gmail.com>
+ * @license http://opensource.org/licenses/BSD-2-Clause BSD 2-clause
  */
 
 /**
@@ -41,7 +41,7 @@ function MIKtoUTF8($text)
 			// ASCII 0-127
 			$out .= $text[$x];
 		} else if ($ch >= 0x80 && $ch <= 0xBF) {
-			// Cyrillic Capital A-Z to Cyrillic Small a-z
+			// from Cyrillic Capital to Cyrillic Small letters
 			$out .= '&#x'.dechex($ch + 0x390).';';
 		} else if (isset($matrix[$ch])) {
 			// all others...
@@ -68,3 +68,4 @@ while (($line = fgets($file, 4096)) !== false) {
 	echo MIKtoUTF8($line);
 }
 fclose($file);
+
